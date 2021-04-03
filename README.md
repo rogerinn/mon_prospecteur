@@ -34,7 +34,7 @@
 
 ## :wrench: Instalação e uso
 
-Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/) e [Docker-compose](https://docs.docker.com/compose/install/) instalados em sua máquina e seguir os passos abaixo:
+Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/), [Docker-compose](https://docs.docker.com/compose/install/) e [Yarn](https://classic.yarnpkg.com/en/docs/install/) instalados em sua máquina e seguir os passos abaixo:
 
 1) Abra um terminal e copie este repositório com o comando
     ```
@@ -116,7 +116,21 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 ## Endpoints
 <details><summary>SignUp</summary>
 <p>
-- **[<code>POST</code> Accounts list]
+  <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-up</code></summary>
+    <p>
+    <p>Request</p>
+    <pre>
+    <code>
+      <code>Content-Type:</code> <code>application/json</code>
+      <code>Accept:</code> <code>application/json</code>
+      <code>body: </code><code> {
+       "cnpj": "70163939000152",
+       "password": "123"
+       }</code>
+    </code>
+    </pre>
+    </p>
+  </details>
 </p>
 </details>
 
