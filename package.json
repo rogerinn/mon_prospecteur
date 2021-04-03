@@ -1,0 +1,33 @@
+{
+  "name": "mon_prospecteur",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rogerinn/mon_prospecteur.git",
+  "author": "Rogério Junior/rogerinn",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@types/node": "^14.14.37",
+    "@typescript-eslint/eslint-plugin": "4",
+    "eslint": "7",
+    "eslint-config-standard-with-typescript": "^20.0.0",
+    "eslint-plugin-import": "2",
+    "eslint-plugin-node": "11",
+    "eslint-plugin-promise": "4",
+    "git-commit-msg-linter": "^3.1.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.3"
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests --runInBand --no-cache",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage",
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
+  }
+}
