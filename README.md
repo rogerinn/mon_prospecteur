@@ -4,9 +4,11 @@
 </h1>
 
 <p align="center">
-  <img src="https://img.shields.io/github/repo-size/rogerinn/mon_prospecteur?style=social">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/rogerinn/mon_prospecteur?style=social">
-  <img alt="Repository size" src="https://img.shields.io/github/issues-pr/rogerinn/mon_prospecteur?style=social">
+  <img src="https://img.shields.io/badge/Author-rogerinn-black">
+  <img src="https://img.shields.io/github/languages/code-size/rogerinn/mon_prospecteur?color=black">
+  <img src="https://img.shields.io/github/languages/count/rogerinn/mon_prospecteur?color=black">
+  <img src="https://img.shields.io/github/issues-pr-closed/rogerinn/mon_prospecteur?color=black">
+  <img src="https://img.shields.io/github/last-commit/rogerinn/mon_prospecteur?color=black">
 </p>
 
 <br>
