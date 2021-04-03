@@ -25,6 +25,12 @@
 
 <br>
 
+## 💾: Fluxo das branchs
+
+<img src="https://lh3.googleusercontent.com/proxy/YtrSpiLLsW1zIzHah6uowCBfqAaYVfJ96cC3y6BDxwSaDg3IUbNIHg0mgOQ-cVNe7o3dmBEqmeyk8-O1QeTIxsW5jogS1V40tq1_lIxfqJhMQ21FgdRFvoqB9xbhz3Sr3g">
+
+<br>
+
 
 ## :wrench: Instalação e uso
 
