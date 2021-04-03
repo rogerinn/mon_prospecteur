@@ -124,10 +124,21 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
       <code>Content-Type:</code> <code>application/json</code>
       <code>Accept:</code> <code>application/json</code>
       <code>body: </code><code> {
-       "cnpj": "70163939000152",
-       "password": "123"
+        "email": "any@email.com",
+        "password": "12345",
+        "confirmationPassword": "12345"
        }</code>
     </code>
+    </pre>
+    <p>Response</p>
+    <pre>
+      <code>
+      <code>statusCode:</code> <code>200</code>
+      {
+       "id": 1
+       "email": "any@email.com",
+       "token": "any_token",
+      }</code>
     </pre>
     </p>
   </details>
