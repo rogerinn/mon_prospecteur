@@ -116,6 +116,8 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 ## Endpoints
 <details><summary>SignUp</summary>
 <p>
+  <ul>
+    <li>
   <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-up</code></summary>
     <p>
     <p>Request</p>
@@ -142,6 +144,8 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     </pre>
     </p>
   </details>
+    </li>
+  </ul>
 </p>
 </details>
 
