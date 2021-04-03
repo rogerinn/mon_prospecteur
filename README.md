@@ -116,28 +116,21 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 ## Endpoints
 <details><summary>SignUp</summary>
 <p>
-- **[<code>POST</code> Accounts list](/accounts/GET_list.md)**
+- **[<code>POST</code> Accounts list]
 </p>
 </details>
 
 <details><summary>SignIn</summary>
 <p>
-- **[<code>POST</code> Create Service](/services/POST_create.md)**
+- **[<code>POST</code> Create Service]
 </p>
 </details>
 
-[Accounts]: /accounts/
-[Services]: /services/
-[Channel Types]: /channel-types
-[Service Channels]: /service_channels
-[Contacts]: /contacts
-[Contact Channels]: /contact_channels
-[Messages]: /messages
-[Contact Custom Fields]: /contact_custom_fields
-[Labels]: /labels
-[Templates]: /templates
-[Automations]: /automations
-[Error Codes]: /error_codes.md
+<details><summary>Search</summary>
+<p>
+- **[<code>GET</code> Create Service]
+</p>
+</details>
 
 <br>
 
