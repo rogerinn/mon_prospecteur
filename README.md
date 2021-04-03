@@ -50,8 +50,28 @@ Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [D
     docker-compose up --build
     ```
     para manter interatividade no terminal.
+    
+4) Acesse ```http://localhost:3000``` no seu cliente http de preferência (Postman, Insomnia, etc).
 
-5) Acesse ```http://localhost:3000``` no seu cliente http de preferência (Postman, Insomnia, etc).
+<br>
+
+## 🔧: Testes
+
+Para rodar os testes, você precisa ter executar o passo anterior e depois seguir os passos abaixo.
+
+1) Testes unitários 
+    ```
+    yarn test:unit
+    ```
+2) Testes e integração
+    ```
+    yarn test:integration
+    ```
+
+3) Cobertura de testes
+    ```
+    yarn test:ci
+    ```
 
 <br>
 
