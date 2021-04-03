@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/node@^14.14.37":
+  version "14.14.37"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.14.37.tgz#a3dd8da4eb84a996c36e331df98d82abd76b516e"
+  integrity sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
@@ -67,6 +72,11 @@ supports-color@^5.3.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
+
+typescipt@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/typescipt/-/typescipt-1.0.0.tgz#bbe7ca742d5e6fc2e3e44ad10d461fe59211f6a5"
+  integrity sha512-Rgg7DtWh0c0oJPz2p48B0hlINIkE5zxU5i+dGctkoiKjIu6twl0HXWzoy+mvp9bQfLJGx70zYuN6GK0S/x5Kxw==
 
 underscore@*:
   version "1.12.1"
