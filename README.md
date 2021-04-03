@@ -19,6 +19,13 @@
 
 <br>
 
+## 🏭: Arquitetura
+
+<img src="arch_canada.png">
+
+<br>
+
+
 ## :wrench: Instalação e uso
 
 Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/) e [Docker-compose](https://docs.docker.com/compose/install/) instalados em sua máquina e seguir os passos abaixo:
