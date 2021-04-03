@@ -1,0 +1,8 @@
+{
+  "name": "mon_prospecteur",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rogerinn/mon_prospecteur.git",
+  "author": "Rogério Junior / rogerinn",
+  "license": "MIT"
+}
