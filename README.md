@@ -21,7 +21,7 @@
 
 ## 🏭: Arquitetura
 
-<img src="arch_canada.png">
+<img src="public/arch.png">
 
 <br>
 
