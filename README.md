@@ -141,6 +141,16 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 
 <br>
 
+## 🏗️: Roadmap
+
+Melhorias e features:
+
+- **CD/CI:** Teraform, Ansible and Azure cloud (Pipeline)
+- **Front:** Angular
+- **Banco de dados:** Modelagem
+
+<br>
+
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](/LICENSE) para mais detalhes.
