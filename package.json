@@ -5,6 +5,10 @@
   "repository": "https://github.com/rogerinn/mon_prospecteur.git",
   "author": "Rogério Junior/rogerinn",
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
