@@ -122,7 +122,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <li>
   <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-up</code></summary>
     <p>
-    <p>Request</p>
+     <details><summary>Request</summary>
     <pre>
     <code>
       <code>Content-Type:</code> <code>application/json</code>
@@ -137,7 +137,8 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     <p>- <code>confirmationPassword:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    <p>Response</p>
+    </details>
+    <details><summary>Response</summary>
     <pre>
       <code>
       <code>statusCode:</code> <code>200</code>
@@ -150,6 +151,17 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <p>- <code>id:</code> <code>Number</code> </p>
     <p>- <code>email:</code> <code>String</code> </p>
     <p>- <code>token:</code> <code>String</code> </p>
+    <pre>Response
+      <code>
+      <code>statusCode:</code> <code>400</code>
+      {
+       "name": "Missing param",
+       "message": "Missing param: email"
+      }</code>
+    </pre>
+    <p>- <code>name:</code> <code>String</code> </p>
+    <p>- <code>message:</code> <code>String</code> </p>
+    </details>
     </p>
   </details>
     </li>
@@ -163,7 +175,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <li>
   <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-in</code></summary>
     <p>
-    <p>Request</p>
+    <details><summary>Request</summary>
     <pre>
     <code>
       <code>Content-Type:</code> <code>application/json</code>
@@ -176,7 +188,8 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     </pre>
     <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    <p>Response</p>
+    </details>
+    <details><summary>Response</summary>
     <pre>
       <code>
       <code>statusCode:</code> <code>200</code>
@@ -185,6 +198,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
       }</code>
     </pre>
     <p>- <code>token:</code> <code>String</code></p>
+    </details>
     </p>
   </details>
     </li>
@@ -198,7 +212,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <li>
   <details><summary>Method: <code>GET</code> Url: <code>/v1/search</code></summary>
     <p>
-    <p>Request</p>
+    <details><summary>Request</summary>
     <pre>
     <code>
       <code>Content-Type:</code> <code>application/json</code>
@@ -209,7 +223,8 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     </code>
     </pre>
     <p>- <code>address:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    <p>Response</p>
+    </details>
+    <details><summary>Response</summary>
     <pre>
       <code>
       <code>statusCode:</code> <code>200</code>
@@ -218,6 +233,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
       }</code>
     </pre>
     <p>- <code>data:</code> <code>Array</code>  </p>
+    </details>
     </p>
   </details>
     </li>
