@@ -21,20 +21,20 @@
 
 <br>
 
-## 🏭: Arquitetura
+## 🏭 Arquitetura
 
 <img src="public/arch.png">
 
 <br>
 
-## 💾: Fluxo das branchs
+## 💾 Fluxo das branchs
 
 <img src="https://lh3.googleusercontent.com/proxy/YtrSpiLLsW1zIzHah6uowCBfqAaYVfJ96cC3y6BDxwSaDg3IUbNIHg0mgOQ-cVNe7o3dmBEqmeyk8-O1QeTIxsW5jogS1V40tq1_lIxfqJhMQ21FgdRFvoqB9xbhz3Sr3g">
 
 <br>
 
 
-## :wrench: Instalação e uso
+## 🔧 Instalação e uso
 
 Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/), [Docker-compose](https://docs.docker.com/compose/install/) e [Yarn](https://classic.yarnpkg.com/en/docs/install/) instalados em sua máquina e seguir os passos abaixo:
 
