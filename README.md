@@ -63,7 +63,7 @@ Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [D
 
 <br>
 
-## ☣️: Testes
+## ☣️ Testes
 
 Para rodar os testes, você precisa ter executar o passo anterior e depois seguir os passos abaixo.
 
@@ -83,7 +83,7 @@ Para rodar os testes, você precisa ter executar o passo anterior e depois segui
 
 <br>
 
-# 📑: API
+# 📑 API
 Documentação de uso.
 
 ## Controle de versão de API
@@ -227,7 +227,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 
 <br>
 
-## 🏗️: Roadmap
+## 🏗️ Roadmap
 
 Melhorias e features:
 
