@@ -139,6 +139,9 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <p>- <code>confirmationPassword:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     </details>
     <details><summary>Response</summary>
+    <ul>
+    <li>
+    <details><summary>200</summary>
     <pre>
       <code>
       <code>statusCode:</code> <code>200</code>
@@ -151,7 +154,11 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <p>- <code>id:</code> <code>Number</code> </p>
     <p>- <code>email:</code> <code>String</code> </p>
     <p>- <code>token:</code> <code>String</code> </p>
-    <pre>Response
+    <details>
+    </li>
+      <li>
+      <details><summary>400</summary>
+      <pre>
       <code>
       <code>statusCode:</code> <code>400</code>
       {
@@ -161,6 +168,9 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     </pre>
     <p>- <code>name:</code> <code>String</code> </p>
     <p>- <code>message:</code> <code>String</code> </p>
+    </details>
+    </li>
+    </ul>
     </details>
     </p>
   </details>
