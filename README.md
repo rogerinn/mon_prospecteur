@@ -39,22 +39,22 @@
 Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/), [Docker-compose](https://docs.docker.com/compose/install/) e [Yarn](https://classic.yarnpkg.com/en/docs/install/) instalados em sua máquina e seguir os passos abaixo:
 
 1) Abra um terminal e copie este repositório com o comando
-    ```
+    ```bash
     git clone https://github.com/rogerinn/mon_prospecteur.git
     ```
     ou use a opção de download.
 
 2) Entre na pasta com
-    ```
+    ```bash
     cd mon_prospecteur
     ```
 
 3) Rode a aplicação, docker irá instalar dependencias e configurações externas.
-    ```
+    ```bash
     docker-compose up --build -d
     ```
     Ou 
-    ```
+    ```bash
     docker-compose up --build
     ```
     para manter interatividade no terminal.
@@ -68,16 +68,16 @@ Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [D
 Para rodar os testes, você precisa ter executar o passo anterior e depois seguir os passos abaixo.
 
 1) Testes unitários 
-    ```
+    ```bash
     yarn test:unit
     ```
 2) Testes e integração
-    ```
+    ```bash
     yarn test:integration
     ```
 
 3) Cobertura de testes
-    ```
+    ```bash
     yarn test:ci
     ```
 
@@ -123,51 +123,53 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
   <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-up</code></summary>
     <p>
      <details><summary>Request</summary>
-    <pre>
-    <code>
-      <code>Content-Type:</code> <code>application/json</code>
-      <code>Accept:</code> <code>application/json</code>
-      <code>body: </code><code> {
-        "email": "any@email.com",
-        "password": "12345",
-        "confirmationPassword": "12345"
-       }</code>
-    </code>
-    </pre>
-    <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    <p>- <code>confirmationPassword:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
-    </details>
-    <details><summary>Response</summary>
-    <ul>
-    <li>
-    <details><summary>200</summary>
-    <pre>
-      <code>
-      <code>statusCode:</code> <code>200</code>
-      {
-       "id": 1
-       "email": "any@email.com",
-       "token": "any_token",
-      }</code>
-    </pre>
-    <p>- <code>id:</code> <code>Number</code> </p>
-    <p>- <code>email:</code> <code>String</code> </p>
-    <p>- <code>token:</code> <code>String</code> </p>
-    </details>
-    </li>
-      <li>
-      <details><summary>400</summary>
-      <pre>
-      <code>
-      <code>statusCode:</code> <code>400</code>
-      {
-       "name": "Missing param",
-       "message": "Missing param: email"
-      }</code>
-    </pre>
-    <p>- <code>name:</code> <code>String</code> </p>
-    <p>- <code>message:</code> <code>String</code> </p>
+       
+```JSON
+Content-Type:application/json,
+Accept:application/json,
+body: 
+{
+  "email": "any@email.com",
+  "password": "12345",
+  "confirmationPassword": "12345"
+}
+```
+
+<p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+<p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+<p>- <code>confirmationPassword:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+</details>
+<details><summary>Response</summary>
+<ul>
+<li>
+<details><summary>200</summary>
+    
+```JSON
+statusCode: 200
+{
+  "id": 1,
+  "email": "any@email.com",
+  "token": "any_token"
+}
+```
+<p>- <code>id:</code> <code>Number</code> </p>
+<p>- <code>email:</code> <code>String</code> </p>
+<p>- <code>token:</code> <code>String</code> </p>
+</details>
+</li>
+<li>
+<details><summary>400</summary>
+        
+```JSON
+statusCode: 400
+{
+ "name": "Missing param",
+ "message": "Missing param: {field}"
+}
+```
+   <p>- <code>name:</code> <code>String</code> </p>
+   <p>- <code>message:</code> <code>String</code> </p>
+   <p>- <code>field:</code> <code>email, password ou confirmationPassword</code> </p>
     </details>
     </li>
     </ul>
@@ -186,28 +188,27 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
   <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-in</code></summary>
     <p>
     <details><summary>Request</summary>
-    <pre>
-    <code>
-      <code>Content-Type:</code> <code>application/json</code>
-      <code>Accept:</code> <code>application/json</code>
-      <code>body: </code><code> {
-        "email": "any@email.com",
-        "password": "12345",
-       }</code>
-    </code>
-    </pre>
-    <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+      
+```JSON
+Content-Type:application/json,
+Accept:application/json,
+body: 
+{
+  "email": "any@email.com",
+  "password": "12345"
+}
+```
+<p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     </details>
     <details><summary>Response</summary>
-    <pre>
-      <code>
-      <code>statusCode:</code> <code>200</code>
-      {
-       "token": "any_token"
-      }</code>
-    </pre>
-    <p>- <code>token:</code> <code>String</code></p>
+      
+```JSON
+{
+  "token": "any_token"
+}
+```      
+   <p>- <code>token:</code> <code>String</code></p>
     </details>
     </p>
   </details>
@@ -223,26 +224,25 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
   <details><summary>Method: <code>GET</code> Url: <code>/v1/search</code></summary>
     <p>
     <details><summary>Request</summary>
-    <pre>
-    <code>
-      <code>Content-Type:</code> <code>application/json</code>
-      <code>Accept:</code> <code>application/json</code>
-      <code>params: </code><code> {
-        "address": "any_address"
-       }</code>
-    </code>
-    </pre>
-    <p>- <code>address:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+      
+```JSON
+Content-Type:application/json,
+Accept:application/json,
+params: 
+{
+  "address": "any_address"
+}
+```      
+   <p>- <code>address:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     </details>
     <details><summary>Response</summary>
-    <pre>
-      <code>
-      <code>statusCode:</code> <code>200</code>
-      {
-       "data": [ { address: "any_address" } ]
-      }</code>
-    </pre>
-    <p>- <code>data:</code> <code>Array</code>  </p>
+  
+```JSON
+{
+  "data": [ { "address": "any_address" } ]
+}
+```   
+   <p>- <code>data:</code> <code>Array</code>  </p>
     </details>
     </p>
   </details>
