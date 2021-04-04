@@ -134,6 +134,11 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
        }</code>
     </code>
     </pre>
+    <br>
+
+* `email:` `Obrigatório` `String` `Min: 10` `Max: 50` 
+* `password:` `Obrigatório` `Number` `Min: 3` `Max: 50` 
+* `confirmationPassword:` `Obrigatório` `Number` `Min: 3` `Max: 50` 
     <p>Response</p>
     <pre>
       <code>
@@ -144,12 +149,16 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
        "token": "any_token",
       }</code>
     </pre>
+* `id:` `Number` 
+* `email:` `String`
+* `token:` `String`
     </p>
   </details>
     </li>
   </ul>
 </p>
 </details>
+<br>
 
 <details><summary>SignIn</summary>
 <p>
