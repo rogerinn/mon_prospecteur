@@ -154,7 +154,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
     <p>- <code>id:</code> <code>Number</code> </p>
     <p>- <code>email:</code> <code>String</code> </p>
     <p>- <code>token:</code> <code>String</code> </p>
-    <details>
+    </details>
     </li>
       <li>
       <details><summary>400</summary>
