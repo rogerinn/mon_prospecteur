@@ -34,7 +34,7 @@
 <br>
 
 
-## :wrench Instalação e uso
+## 🔧 Instalação e uso
 
 Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [Docker](https://docs.docker.com/get-docker/), [Docker-compose](https://docs.docker.com/compose/install/) e [Yarn](https://classic.yarnpkg.com/en/docs/install/) instalados em sua máquina e seguir os passos abaixo:
 
