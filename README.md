@@ -63,7 +63,7 @@ Para rodar a aplicação, você precisa ter o [Node](https://nodejs.org/en/), [D
 
 <br>
 
-## 🔧: Testes
+## ☣️: Testes
 
 Para rodar os testes, você precisa ter executar o passo anterior e depois seguir os passos abaixo.
 
@@ -134,10 +134,9 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
        }</code>
     </code>
     </pre>
-    
-* `email:` `Obrigatório` `String` `Min: 10` `Max: 50` 
-* `password:` `Obrigatório` `Number` `Min: 3` `Max: 50` 
-* `confirmationPassword:` `Obrigatório` `Number` `Min: 3` `Max: 50` 
+    <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+    <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+    <p>- <code>confirmationPassword:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
     <p>Response</p>
     <pre>
       <code>
@@ -148,9 +147,9 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
        "token": "any_token",
       }</code>
     </pre>
-* `id:` `Numbed:` `Number` * `email:` `Strinr` 
-* `email:` `String`
-* `token:` `String`
+    <p>- <code>id:</code> <code>Number</code> </p>
+    <p>- <code>email:</code> <code>String</code> </p>
+    <p>- <code>token:</code> <code>String</code> </p>
     </p>
   </details>
     </li>
@@ -160,13 +159,69 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 
 <details><summary>SignIn</summary>
 <p>
-- **[<code>POST</code> Create Service]
+  <ul>
+    <li>
+  <details><summary>Method: <code>POST</code> Url: <code>/v1/sign-in</code></summary>
+    <p>
+    <p>Request</p>
+    <pre>
+    <code>
+      <code>Content-Type:</code> <code>application/json</code>
+      <code>Accept:</code> <code>application/json</code>
+      <code>body: </code><code> {
+        "email": "any@email.com",
+        "password": "12345",
+       }</code>
+    </code>
+    </pre>
+    <p>- <code>email:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+    <p>- <code>password:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+    <p>Response</p>
+    <pre>
+      <code>
+      <code>statusCode:</code> <code>200</code>
+      {
+       "token": "any_token"
+      }</code>
+    </pre>
+    <p>- <code>token:</code> <code>String</code></p>
+    </p>
+  </details>
+    </li>
+  </ul>
 </p>
 </details>
 
 <details><summary>Search</summary>
 <p>
-- **[<code>GET</code> Create Service]
+  <ul>
+    <li>
+  <details><summary>Method: <code>GET</code> Url: <code>/v1/search</code></summary>
+    <p>
+    <p>Request</p>
+    <pre>
+    <code>
+      <code>Content-Type:</code> <code>application/json</code>
+      <code>Accept:</code> <code>application/json</code>
+      <code>params: </code><code> {
+        "address": "any_address"
+       }</code>
+    </code>
+    </pre>
+    <p>- <code>address:</code> <code>Obrigatório</code> <code>String</code> <code>Min: 10</code> <code>Max: 50</code> </p>
+    <p>Response</p>
+    <pre>
+      <code>
+      <code>statusCode:</code> <code>200</code>
+      {
+       "data": [ { address: "any_address" } ]
+      }</code>
+    </pre>
+    <p>- <code>data:</code> <code>Array</code>  </p>
+    </p>
+  </details>
+    </li>
+  </ul>
 </p>
 </details>
 
