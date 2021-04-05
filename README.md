@@ -257,9 +257,10 @@ params:
 
 Melhorias e features:
 
-- **CD/CI:** Teraform, Ansible and Azure cloud (Pipeline)
-- **Front:** Angular
-- **Banco de dados:** Modelagem
+- **CD/CI:** Teraform, Ansible and Azure cloud (Pipeline).
+- **Front:** Angular.
+- **Banco de dados:** Modelagem.
+- **Documentação**: Adicionar lista com tipos de erros. Ex: "Missing param".
 
 <br>
 
