@@ -120,7 +120,7 @@ Cada resposta será retornada com um dos seguintes códigos de status HTTP:
 <p>
   <ul>
     <li>
-  <details><summary>Method: <code>POST</code> PATH: <code>/v1/sign-up</code></summary>
+  <details><summary>Method: <code>POST</code> Path: <code>/v1/sign-up</code></summary>
     <p>
      <details><summary>Request</summary>
        
@@ -185,7 +185,7 @@ statusCode: 400
 <p>
   <ul>
     <li>
-  <details><summary>Method: <code>POST</code> PATH: <code>/v1/sign-in</code></summary>
+  <details><summary>Method: <code>POST</code> Path: <code>/v1/sign-in</code></summary>
     <p>
     <details><summary>Request</summary>
       
@@ -221,7 +221,7 @@ body:
 <p>
   <ul>
     <li>
-  <details><summary>Method: <code>GET</code> PATH: <code>/v1/search</code></summary>
+  <details><summary>Method: <code>GET</code> Path: <code>/v1/search</code></summary>
     <p>
     <details><summary>Request</summary>
       
