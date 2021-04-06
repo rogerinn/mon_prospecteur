@@ -1,4 +1,5 @@
 import { Validation } from '@/framework/src/presentation/protocols'
+import { serverError } from '@/framework/src/presentation/helpers'
 import { SignUpController } from '@/api/src/presentation/controllers/signup-controller'
 import faker from 'faker'
 
@@ -41,6 +42,14 @@ describe('SignUp controller', () => {
     const request = makeFakeRequest()
     await sut.handle(request)
     expect(validationSpy).toHaveBeenCalledWith(request)
+  })
+
+  test('Should throws if throws', async () => {
+    const { sut, validationStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockImplementationOnce(() => { throw new Error() })
+    const request = makeFakeRequest()
+    const response = await sut.handle(request)
+    expect(response).toEqual(serverError())
   })
 
   test('Should return null', async () => {
