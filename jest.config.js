@@ -10,7 +10,6 @@ module.exports = {
     '.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
-    '@/tests/(.*)': '<rootDir>/tests/$1',
-    '@/(.*)': '<rootDir>/src/$1'
+    '@/(.*)': '<rootDir>packages/$1'
   }
 }
