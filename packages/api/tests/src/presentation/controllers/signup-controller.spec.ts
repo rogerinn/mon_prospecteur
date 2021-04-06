@@ -25,6 +25,13 @@ const makeSut = (): SutType => {
 }
 
 describe('SignUp controller', () => {
+  test('Should call validation with correct values', async () => {
+    const { sut, validationStub } = makeSut()
+    const validationSpy = jest.spyOn(validationStub, 'validate')
+    await sut.handle({ email: 'any_data', password: 'any_password', confirmPassword: 'any_password' })
+    expect(validationSpy).toHaveBeenCalledWith({ email: 'any_data', password: 'any_password', confirmPassword: 'any_password' })
+  })
+
   test('Should return null', async () => {
     const { sut } = makeSut()
     const response = await sut.handle({ email: 'any_data', password: 'any_password', confirmPassword: 'any_password' })
