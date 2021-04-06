@@ -18,6 +18,7 @@
     "eslint-plugin-import": "2",
     "eslint-plugin-node": "11",
     "eslint-plugin-promise": "4",
+    "faker": "^5.5.2",
     "git-commit-msg-linter": "^3.1.0",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
@@ -36,5 +37,8 @@
   },
   "dependencies": {
     "module-alias": "^2.2.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
   }
 }
