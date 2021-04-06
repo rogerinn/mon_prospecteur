@@ -29,7 +29,7 @@
 
 ## 💾 Fluxo das branchs
 
-<img src="/public/branch">
+<img src="/public/branch.png">
 
 <br>
 
