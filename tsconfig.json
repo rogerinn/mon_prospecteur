@@ -8,9 +8,7 @@
     "strictNullChecks": true,
     "baseUrl": "packages",
     "paths": {
-      "@/*": ["*"],
-      "@api/*": ["api/src/*"],
-      "@framework": ["framework/src/*"]
+      "@/*": ["*"]
     }
   },
   "include": ["packages", "tests"],
