@@ -1,5 +1,5 @@
 import { HttpResponse } from '@/framework/src/presentation/protocols/index'
 
-export interface Controller<T = any> {
+export interface IController<T = any> {
   handle: (request: T) => Promise<HttpResponse|null>
 }
