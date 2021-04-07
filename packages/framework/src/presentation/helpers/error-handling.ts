@@ -1,9 +1,5 @@
 import { badRequest } from '@/framework/src/presentation/helpers'
-import { HttpResponse } from '../protocols'
-
-export interface IErrorHandling {
-  handle: (error: Error) => HttpResponse
-}
+import { HttpResponse, IErrorHandling } from '@/framework/src/presentation/protocols'
 
 export class ErrorHandling implements IErrorHandling {
   handle (error: Error): HttpResponse {
