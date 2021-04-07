@@ -1,4 +1,4 @@
-import { serverError } from '@/framework/src/presentation/helpers'
+import { badRequest, serverError } from '@/framework/src/presentation/helpers'
 import { Controller, HttpResponse, Validation } from '@/framework/src/presentation/protocols'
 
 export class SignUpController implements Controller {
@@ -6,7 +6,10 @@ export class SignUpController implements Controller {
 
   async handle (request: SignUpController.Request): Promise<HttpResponse|null> {
     try {
-      this.validation.validate(request)
+      const error = this.validation.validate(request)
+      if (error) {
+        return badRequest(error)
+      }
       return null
     } catch (error) {
       return serverError()
