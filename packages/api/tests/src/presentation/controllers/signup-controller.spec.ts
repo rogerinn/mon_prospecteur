@@ -1,5 +1,6 @@
 import { Validation } from '@/framework/src/presentation/protocols'
-import { serverError } from '@/framework/src/presentation/helpers'
+import { badRequest, serverError } from '@/framework/src/presentation/helpers'
+import { MissingParamError } from '@/framework/src/presentation/errors/missing-param-error'
 import { SignUpController } from '@/api/src/presentation/controllers/signup-controller'
 import faker from 'faker'
 
@@ -44,12 +45,20 @@ describe('SignUp controller', () => {
     expect(validationSpy).toHaveBeenCalledWith(request)
   })
 
-  test('Should throws if throws', async () => {
+  test('Should throws if validation throws', async () => {
     const { sut, validationStub } = makeSut()
     jest.spyOn(validationStub, 'validate').mockImplementationOnce(() => { throw new Error() })
     const request = makeFakeRequest()
     const response = await sut.handle(request)
     expect(response).toEqual(serverError())
+  })
+
+  test('Should return error if validation returns error', async () => {
+    const { sut, validationStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('field'))
+    const request = makeFakeRequest()
+    const response = await sut.handle(request)
+    expect(response).toEqual(badRequest(new MissingParamError('field')))
   })
 
   test('Should return null', async () => {
