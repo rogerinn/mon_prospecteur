@@ -79,6 +79,14 @@ describe('SignUp controller', () => {
     expect(errorHandlingSpy).toHaveBeenCalledWith(new MissingParamError('any_field'))
   })
 
+  test('Should return error if validation returns error', async () => {
+    const { sut, validationStub, errorHandlingStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any_field'))
+    jest.spyOn(errorHandlingStub, 'handle').mockReturnValueOnce(badRequest(new MissingParamError('any_field')))
+    const response = await sut.handle(makeFakeRequest())
+    expect(response).toEqual(badRequest(new MissingParamError('any_field')))
+  })
+
   test('Should return null', async () => {
     const { sut } = makeSut()
     const response = await sut.handle(makeFakeRequest())
