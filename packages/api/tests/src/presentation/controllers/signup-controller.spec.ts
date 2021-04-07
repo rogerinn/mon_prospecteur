@@ -37,6 +37,15 @@ const makeFakeRequest = (): SignUp.Request => {
   }
 }
 
+const makeFakeRequest = (): SignUpController.Request => {
+  const password = faker.internet.email()
+  return {
+    email: faker.internet.email(),
+    password,
+    confirmPassword: password
+  }>>>>>>> main
+}
+
 const makeSut = (): SutType => {
   const validationStub = makeValidation()
   const errorHandlingStub = makeErrorHandling()
@@ -87,9 +96,18 @@ describe('SignUp controller', () => {
     expect(response).toEqual(badRequest(new MissingParamError('any_field')))
   })
 
+  test('Should throws if throws', async () => {
+    const { sut, validationStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockImplementationOnce(() => { throw new Error() })
+    const request = makeFakeRequest()
+    const response = await sut.handle(request)
+    expect(response).toEqual(serverError())
+  })
+
   test('Should return null', async () => {
     const { sut } = makeSut()
-    const response = await sut.handle(makeFakeRequest())
+    const request = makeFakeRequest()
+    const response = await sut.handle(request)
     expect(response).toBeNull()
   })
 })

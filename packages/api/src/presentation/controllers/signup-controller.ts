@@ -1,7 +1,5 @@
-import { IErrorHandling, serverError } from '@/framework/src/presentation/helpers'
-import { IController, HttpResponse, Validation } from '@/framework/src/presentation/protocols'
 
-export namespace SignUp {
+export namespace SignUpController {
   export type Request = {
     email: string
     password: string
