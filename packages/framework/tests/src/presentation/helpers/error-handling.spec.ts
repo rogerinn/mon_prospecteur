@@ -12,7 +12,7 @@ const makeSut = (): SutType => {
 }
 
 describe('Error handling', () => {
-  test('Should call validation with correct values', async () => {
+  test('Should return badRequest if error name is Missim param', async () => {
     const { sut } = makeSut()
     const exception = {
       name: 'Missing param',
