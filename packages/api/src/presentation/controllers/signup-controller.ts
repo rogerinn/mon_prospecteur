@@ -4,7 +4,7 @@ import { Controller, HttpResponse, Validation } from '@/framework/src/presentati
 export class SignUpController implements Controller {
   constructor (private readonly validation: Validation) { }
 
-  async handle (request: SignUpController.Request): Promise<HttpResponse|null> {
+  async handle (request: SignUpController.Request): Promise<HttpResponse | null> {
     try {
       const error = this.validation.validate(request)
       if (error) {
