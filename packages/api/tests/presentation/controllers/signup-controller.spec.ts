@@ -57,18 +57,18 @@ describe('SignUp controller', () => {
     expect(validationSpy).toHaveBeenCalledWith(request)
   })
 
-  test('Should throws if validation throws', async () => {
-    const { sut, validationStub } = makeSut()
-    jest.spyOn(validationStub, 'validate').mockImplementationOnce(() => { throw new Error() })
-    const response = await sut.handle(makeFakeRequest())
-    expect(response).toEqual(serverError())
-  })
-
   test('Should return error if validation returns error', async () => {
     const { sut, validationStub } = makeSut()
     jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('field'))
     const response = await sut.handle(makeFakeRequest())
     expect(response).toEqual(badRequest(new MissingParamError('field')))
+  })
+
+  test('Should throws if validation throws', async () => {
+    const { sut, validationStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockImplementationOnce(() => { throw new Error() })
+    const response = await sut.handle(makeFakeRequest())
+    expect(response).toEqual(serverError())
   })
 
   test('Should call error handling with correct error', async () => {
@@ -85,6 +85,14 @@ describe('SignUp controller', () => {
     jest.spyOn(errorHandlingStub, 'handle').mockReturnValueOnce(badRequest(new MissingParamError('any_field')))
     const response = await sut.handle(makeFakeRequest())
     expect(response).toEqual(badRequest(new MissingParamError('any_field')))
+  })
+
+  test('Should throws if error handling throws', async () => {
+    const { sut, validationStub, errorHandlingStub } = makeSut()
+    jest.spyOn(validationStub, 'validate').mockReturnValueOnce(new MissingParamError('any_field'))
+    jest.spyOn(errorHandlingStub, 'handle').mockImplementationOnce(() => { throw new Error() })
+    const response = await sut.handle(makeFakeRequest())
+    expect(response).toEqual(serverError())
   })
 
   test('Should return null', async () => {
