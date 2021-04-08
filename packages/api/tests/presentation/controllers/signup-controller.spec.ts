@@ -13,12 +13,6 @@ const makeValidation = (): Validation => {
   return new ValidationStub()
 }
 
-type SutType = {
-  sut: SignUp.Controller
-  validationStub: Validation
-  errorHandlingStub: IErrorHandling
-}
-
 const makeErrorHandling = (): IErrorHandling => {
   class ErrorHandling implements IErrorHandling {
     handle (error: Error): HttpResponse {
@@ -35,6 +29,12 @@ const makeFakeRequest = (): SignUp.Request => {
     password,
     confirmPassword: password
   }
+}
+
+type SutType = {
+  sut: SignUp.Controller
+  validationStub: Validation
+  errorHandlingStub: IErrorHandling
 }
 
 const makeSut = (): SutType => {
