@@ -9,7 +9,8 @@ export namespace SignUp {
   }
 
   export class Controller implements IController {
-    constructor (private readonly validation: Validation,
+    constructor (
+      private readonly validation: Validation,
       private readonly errorHandler: IErrorHandling
     ) { }
 
