@@ -1,5 +1,7 @@
+import { serverError } from '@/framework/src/presentation/helpers'
+import { IController, HttpResponse, Validation, IErrorHandling } from '@/framework/src/presentation/protocols'
 
-export namespace SignUpController {
+export namespace SignUp {
   export type Request = {
     email: string
     password: string
@@ -7,7 +9,8 @@ export namespace SignUpController {
   }
 
   export class Controller implements IController {
-    constructor (private readonly validation: Validation,
+    constructor (
+      private readonly validation: Validation,
       private readonly errorHandler: IErrorHandling
     ) { }
 
