@@ -11,6 +11,7 @@
       "@typescript-eslint/restrict-template-expressions": "off",
       "@typescript-eslint/no-misused-promises": "off",
       "@typescript-eslint/no-namespace": "off",
+      "node/no-path-concat": "off",
       "import/export": "off"
     }
 }
