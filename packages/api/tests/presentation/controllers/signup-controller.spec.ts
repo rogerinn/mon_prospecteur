@@ -97,7 +97,8 @@ describe('SignUp controller', () => {
 
   test('Should return null', async () => {
     const { sut } = makeSut()
-    const response = await sut.handle(makeFakeRequest())
+    const request = makeFakeRequest()
+    const response = await sut.handle(request)
     expect(response).toBeNull()
   })
 })
