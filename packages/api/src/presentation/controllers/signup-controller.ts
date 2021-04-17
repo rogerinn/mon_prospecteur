@@ -1,4 +1,4 @@
-import { serverError } from '@/framework/src/presentation/helpers'
+import { serverError, ok } from '@/framework/src/presentation/helpers'
 import { IController, HttpResponse, Validation, IErrorHandling } from '@/framework/src/presentation/protocols'
 import { AddUser } from '../../domain/usecases/add-account'
 
@@ -22,8 +22,7 @@ export namespace SignUp {
         if (error) {
           return this.errorHandler.handle(error)
         }
-        await this.addUser.add(request)
-        return null
+        return ok(await this.addUser.add(request))
       } catch (error) {
         return serverError()
       }
