@@ -16,7 +16,7 @@ export namespace SignUp {
       private readonly addUser: AddUser
     ) { }
 
-    async handle (request: SignUp.Request): Promise<HttpResponse | null> {
+    async handle (request: SignUp.Request): Promise<HttpResponse> {
       try {
         const error = this.validation.validate(request)
         if (error) {
