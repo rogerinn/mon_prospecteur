@@ -117,6 +117,13 @@ describe('SignUp controller', () => {
     expect(validationSpy).toHaveBeenCalledWith(request)
   })
 
+  test('Should throws if addUserStub throws', async () => {
+    const { sut, addUserStub } = makeSut()
+    jest.spyOn(addUserStub, 'add').mockImplementationOnce(() => { throw new Error() })
+    const response = await sut.handle(makeFakeRequest())
+    expect(response).toEqual(serverError())
+  })
+
   test('Should return null', async () => {
     const { sut } = makeSut()
     const request = makeFakeRequest()
