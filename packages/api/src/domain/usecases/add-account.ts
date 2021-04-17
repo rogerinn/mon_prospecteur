@@ -1,11 +1,9 @@
-import { AccountModel } from '@/api/src/domain/models/account'
+import { UserModel } from '@/api/src/domain/models/account'
 
-export interface AddAccount {
-  add: (account: AddAccount.Params) => Promise<AccountModel>
+export interface AddUser {
+  add: (account: AddUser.Params) => Promise<UserModel>
 }
 
-export namespace AddAccount {
-  export type Params = Omit<AccountModel, 'id'>
-
-  export type Result = boolean
+export namespace AddUser {
+  export type Params = Omit<UserModel, 'id'>
 }
