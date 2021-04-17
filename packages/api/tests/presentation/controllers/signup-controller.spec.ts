@@ -1,5 +1,5 @@
 import { HttpResponse, Validation, IErrorHandling } from '@/framework/src/presentation/protocols'
-import { badRequest, serverError } from '@/framework/src/presentation/helpers'
+import { badRequest, serverError, ok } from '@/framework/src/presentation/helpers'
 import { MissingParamError } from '@/framework/src/presentation/errors/missing-param-error'
 import { SignUp } from '@/api/src/presentation/controllers/signup-controller'
 import faker from 'faker'
@@ -124,10 +124,10 @@ describe('SignUp controller', () => {
     expect(response).toEqual(serverError())
   })
 
-  test('Should return null', async () => {
+  test('Should returns 200 if is valid data is provided', async () => {
     const { sut } = makeSut()
     const request = makeFakeRequest()
     const response = await sut.handle(request)
-    expect(response).toBeNull()
+    expect(response).toEqual(ok({ id: faker.datatype.id, ...request }))
   })
 })
