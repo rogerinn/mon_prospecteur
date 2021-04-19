@@ -41,4 +41,12 @@ describe('DbAddUser controller', () => {
     await sut.add(rest)
     expect(addUserSpy).toHaveBeenCalledWith(rest)
   })
+
+  test('Should throws if repository throws', async () => {
+    const { sut, addUserRepositoryStub } = makeSut()
+    jest.spyOn(addUserRepositoryStub, 'add').mockImplementationOnce(() => { throw new Error() })
+    const { id, ...rest } = makeFakeUser()
+    const promise = sut.add(rest)
+    await expect(promise).rejects.toThrow()
+  })
 })
