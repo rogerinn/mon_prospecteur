@@ -3,8 +3,8 @@ import { badRequest, serverError, ok } from '@/framework/src/presentation/helper
 import { MissingParamError } from '@/framework/src/presentation/errors/missing-param-error'
 import { SignUp } from '@/api/src/presentation/controllers/signup-controller'
 import faker from 'faker'
-import { AddUser } from '@/api/src/domain/usecases/add-account'
-import { UserModel } from '@/api/src/domain/models/account'
+import { AddUser } from '@/api/src/domain/usecases/add-user'
+import { UserModel } from '@/api/src/domain/models/user'
 
 const makeFakeRequest = (): SignUp.Request => {
   const password = faker.internet.email()
@@ -111,10 +111,10 @@ describe('SignUp controller', () => {
 
   test('Should call addUserStub with correct values', async () => {
     const { sut, addUserStub } = makeSut()
-    const validationSpy = jest.spyOn(addUserStub, 'add')
-    const request = makeFakeRequest()
-    await sut.handle(request)
-    expect(validationSpy).toHaveBeenCalledWith(request)
+    const addUserSpy = jest.spyOn(addUserStub, 'add')
+    const { confirmPassword, ...rest } = makeFakeRequest()
+    await sut.handle({ confirmPassword, ...rest })
+    expect(addUserSpy).toHaveBeenCalledWith(rest)
   })
 
   test('Should throws if addUserStub throws', async () => {
@@ -126,8 +126,8 @@ describe('SignUp controller', () => {
 
   test('Should returns 200 if is valid data is provided', async () => {
     const { sut } = makeSut()
-    const request = makeFakeRequest()
-    const response = await sut.handle(request)
-    expect(response).toEqual(ok({ id: faker.datatype.id, ...request }))
+    const { confirmPassword, ...rest } = makeFakeRequest()
+    const response = await sut.handle({ confirmPassword, ...rest })
+    expect(response).toEqual(ok({ id: faker.datatype.id, ...rest }))
   })
 })
