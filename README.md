@@ -4,7 +4,8 @@
 </h1>
 
 <p align="center">
-  <img src="https://travis-ci.com/rogerinn/mon_prospecteur.svg?branch=master">
+  <img src="https://travis-ci.com/rogerinn/mon_prospecteur.svg?branch=main">
+  <img src="https://coveralls.io/repos/github/rogerinn/mon_prospecteur/badge.svg">
   <img src="https://img.shields.io/badge/Author-rogerinn-black">
   <img src="https://img.shields.io/github/languages/code-size/rogerinn/mon_prospecteur?color=black">
   <img src="https://img.shields.io/github/languages/count/rogerinn/mon_prospecteur?color=black">
