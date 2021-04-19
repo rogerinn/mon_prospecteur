@@ -1,8 +1,19 @@
 import { HttpResponse, Validation, IErrorHandling } from '@/framework/src/presentation/protocols'
-import { badRequest, serverError } from '@/framework/src/presentation/helpers'
+import { badRequest, serverError, ok } from '@/framework/src/presentation/helpers'
 import { MissingParamError } from '@/framework/src/presentation/errors/missing-param-error'
 import { SignUp } from '@/api/src/presentation/controllers/signup-controller'
 import faker from 'faker'
+import { AddUser } from '@/api/src/domain/usecases/add-user'
+import { UserModel } from '@/api/src/domain/models/user'
+
+const makeFakeRequest = (): SignUp.Request => {
+  const password = faker.internet.email()
+  return {
+    email: faker.internet.email(),
+    password,
+    confirmPassword: password
+  }
+}
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
@@ -14,37 +25,40 @@ const makeValidation = (): Validation => {
 }
 
 const makeErrorHandling = (): IErrorHandling => {
-  class ErrorHandling implements IErrorHandling {
+  class ErrorHandlingStub implements IErrorHandling {
     handle (error: Error): HttpResponse {
       return badRequest(error)
     }
   }
-  return new ErrorHandling()
+  return new ErrorHandlingStub()
 }
 
-const makeFakeRequest = (): SignUp.Request => {
-  const password = faker.internet.email()
-  return {
-    email: faker.internet.email(),
-    password,
-    confirmPassword: password
+const makeAddUser = (): AddUser => {
+  class AddUserStub implements AddUser {
+    async add (params: AddUser.Params): Promise<UserModel> {
+      return new Promise((resolve) => resolve({ id: faker.datatype.id, ...params }))
+    }
   }
+  return new AddUserStub()
 }
 
 type SutType = {
   sut: SignUp.Controller
   validationStub: Validation
   errorHandlingStub: IErrorHandling
+  addUserStub: AddUser
 }
 
 const makeSut = (): SutType => {
   const validationStub = makeValidation()
   const errorHandlingStub = makeErrorHandling()
-  const sut = new SignUp.Controller(validationStub, errorHandlingStub)
+  const addUserStub = makeAddUser()
+  const sut = new SignUp.Controller(validationStub, errorHandlingStub, addUserStub)
   return {
     sut,
     validationStub,
-    errorHandlingStub
+    errorHandlingStub,
+    addUserStub
   }
 }
 
@@ -95,10 +109,25 @@ describe('SignUp controller', () => {
     expect(response).toEqual(serverError())
   })
 
-  test('Should return null', async () => {
+  test('Should call addUserStub with correct values', async () => {
+    const { sut, addUserStub } = makeSut()
+    const addUserSpy = jest.spyOn(addUserStub, 'add')
+    const { confirmPassword, ...rest } = makeFakeRequest()
+    await sut.handle({ confirmPassword, ...rest })
+    expect(addUserSpy).toHaveBeenCalledWith(rest)
+  })
+
+  test('Should throws if addUserStub throws', async () => {
+    const { sut, addUserStub } = makeSut()
+    jest.spyOn(addUserStub, 'add').mockImplementationOnce(() => { throw new Error() })
+    const response = await sut.handle(makeFakeRequest())
+    expect(response).toEqual(serverError())
+  })
+
+  test('Should returns 200 if is valid data is provided', async () => {
     const { sut } = makeSut()
-    const request = makeFakeRequest()
-    const response = await sut.handle(request)
-    expect(response).toBeNull()
+    const { confirmPassword, ...rest } = makeFakeRequest()
+    const response = await sut.handle({ confirmPassword, ...rest })
+    expect(response).toEqual(ok({ id: faker.datatype.id, ...rest }))
   })
 })
