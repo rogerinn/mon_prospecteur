@@ -1,6 +1,6 @@
 import { serverError, ok } from '@/framework/src/presentation/helpers'
 import { IController, HttpResponse, Validation, IErrorHandling } from '@/framework/src/presentation/protocols'
-import { AddUser } from '../../domain/usecases/add-account'
+import { AddUser } from '../../domain/usecases/add-user'
 
 export namespace SignUp {
   export type Request = {
@@ -22,7 +22,8 @@ export namespace SignUp {
         if (error) {
           return this.errorHandler.handle(error)
         }
-        return ok(await this.addUser.add(request))
+        const { email, password } = request
+        return ok(await this.addUser.add({ email, password }))
       } catch (error) {
         return serverError()
       }
