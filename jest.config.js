@@ -1,7 +1,8 @@
 module.exports = {
-  roots: ['<rootDir>/packages'],
+  roots: ['<rootDir>/'],
   collectCoverageFrom: [
-    '<rootDir>/packages/**/**/*.ts'
+    '<rootDir>/products/**/**/*.ts',
+    '<rootDir>/libs/**/**/*.ts'
   ],
   coverageDirectory: 'coverage',
   coverageProvider: 'babel',
@@ -10,6 +11,6 @@ module.exports = {
     '.+\\.ts$': 'ts-jest'
   },
   moduleNameMapper: {
-    '@/(.*)': '<rootDir>packages/$1'
+    '@/(.*)': '<rootDir>/$1'
   }
 }
