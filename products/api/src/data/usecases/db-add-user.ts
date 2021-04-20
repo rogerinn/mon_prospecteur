@@ -11,8 +11,8 @@ export class DbAddUser implements AddUser {
   ) { }
 
   async add (user: DbAddUser.Params): Promise<UserModel> {
-    await this.hasher.hash(user.password)
-    return await this.addUserRepository.add(user)
+    const hashedPassword = await this.hasher.hash(user.password)
+    return await this.addUserRepository.add({ ...user, password: hashedPassword })
   }
 }
 
