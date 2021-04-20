@@ -8,7 +8,6 @@ const makeFakeUser = (): UserModel => ({
   id: faker.datatype.id,
   email: faker.internet.email(),
   password: faker.internet.email()
-
 })
 
 const makeAddUserRepository = (): AddUserRepository => {
@@ -52,7 +51,7 @@ describe('DbAddUser controller', () => {
     const addUserSpy = jest.spyOn(addUserRepositoryStub, 'add')
     const { id, ...rest } = makeFakeUser()
     await sut.add(rest)
-    expect(addUserSpy).toHaveBeenCalledWith(rest)
+    expect(addUserSpy).toHaveBeenCalledWith({ ...rest, password: faker.datatype.uuid })
   })
 
   test('Should throws if repository throws', async () => {
