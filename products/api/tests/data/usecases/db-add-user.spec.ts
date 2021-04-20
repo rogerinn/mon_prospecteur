@@ -70,4 +70,12 @@ describe('DbAddUser controller', () => {
     await sut.add({ ...rest, password })
     expect(hasherSpy).toHaveBeenCalledWith(password)
   })
+
+  test('Should call hash with correct password', async () => {
+    const { sut, hasherStub } = makeSut()
+    jest.spyOn(hasherStub, 'hash').mockImplementationOnce(async () => { throw new Error() })
+    const { id, ...rest } = makeFakeUser()
+    const promise = sut.add(rest)
+    await expect(promise).rejects.toThrow()
+  })
 })
