@@ -1,6 +1,7 @@
 import { AddUserRepository } from '@/products/api/src/data/protocols/add-user-repository'
 import { UserModel } from '@/products/api/src/domain/models/user'
 import { DbAddUser } from '@/products/api/src/data/usecases/db-add-user'
+import { Hasher } from '@/products/api/src/data/protocols/cryptography/hasher'
 import faker from 'faker'
 
 const makeFakeUser = (): UserModel => ({
@@ -19,17 +20,29 @@ const makeAddUserRepository = (): AddUserRepository => {
   return new AddUserRepositoryStub()
 }
 
+const makeHasher = (): Hasher => {
+  class HasherStub implements Hasher {
+    async hash (plaintext: string): Promise<string> {
+      return await new Promise(resolve => resolve(faker.datatype.uuid))
+    }
+  }
+  return new HasherStub()
+}
+
 type SutType = {
   sut: DbAddUser
   addUserRepositoryStub: AddUserRepository
+  hasherStub: Hasher
 }
 
 const makeSut = (): SutType => {
   const addUserRepositoryStub = makeAddUserRepository()
-  const sut = new DbAddUser(addUserRepositoryStub)
+  const hasherStub = makeHasher()
+  const sut = new DbAddUser(addUserRepositoryStub, hasherStub)
   return {
     sut,
-    addUserRepositoryStub
+    addUserRepositoryStub,
+    hasherStub
   }
 }
 
@@ -48,5 +61,13 @@ describe('DbAddUser controller', () => {
     const { id, ...rest } = makeFakeUser()
     const promise = sut.add(rest)
     await expect(promise).rejects.toThrow()
+  })
+
+  test('Should call hash with correct password', async () => {
+    const { sut, hasherStub } = makeSut()
+    const hasherSpy = jest.spyOn(hasherStub, 'hash')
+    const { id, password, ...rest } = makeFakeUser()
+    await sut.add({ ...rest, password })
+    expect(hasherSpy).toHaveBeenCalledWith(password)
   })
 })
