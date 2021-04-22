@@ -4,7 +4,8 @@ module.exports = {
     '<rootDir>/products/**/**/*.ts',
     '<rootDir>/libs/**/**/*.ts'
   ],
-  coverageDirectory: 'coverage',
+  preset: '@shelf/jest-mongodb',
+  coverageDirectory: '<rootDir>/coverage',
   coverageProvider: 'babel',
   testEnvironment: 'node',
   transform: {
