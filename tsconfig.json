@@ -6,11 +6,11 @@
     "esModuleInterop": true,
     "allowJs": true,
     "strictNullChecks": true,
-    "baseUrl": "packages",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["*"]
     }
   },
-  "include": ["packages", "tests"],
+  "include": ["products", "tests", "libs"],
   "exclude": []
 }
